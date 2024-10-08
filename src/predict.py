@@ -49,7 +49,7 @@ class DataProcessor:
 
         # Select only features 6 and 7
         selected_features = ["6", "7"]
-        X_test = test_data[selected_features].values
+        X_test = test_data[selected_features]
 
         logging.info("Selected features for prediction: %s", selected_features)
         logging.info("Shape of selected features: %s", X_test.shape)

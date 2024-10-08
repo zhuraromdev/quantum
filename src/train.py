@@ -205,11 +205,13 @@ def main():
     # Save the best model (choosing based on validation RMSE)
     if val_rmse_selected < val_rmse_all:
         model_saver.save_model_and_scaler(model_selected, scaler_selected)
+        logging.info("Saving model trained on selected features (6 and 7)")
         logging.info(
             "Final Validation RMSE (selected features): %.4f", val_rmse_selected
         )
     else:
         model_saver.save_model_and_scaler(model_all, scaler_all)
+        logging.info("Saving model trained on all features")
         logging.info("Final Validation RMSE (all features): %.4f", val_rmse_all)
 
     logging.info("Model training completed and saved.")

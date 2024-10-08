@@ -120,3 +120,48 @@ The performance metrics for each model are saved in `model_results.csv`. Here's 
    - The extremely low RMSE values for the Random Forest model might indicate potential overfitting. Further investigation and possibly regularization techniques may be needed to ensure generalization.
 
 Based on these results, the Random Forest model using only features 6 and 7 is selected as the best model for this regression task. However, it's important to monitor its performance on unseen data to ensure it generalizes well.
+
+# MNIST Digit Classification Project
+
+This project implements multiple classifiers for the MNIST handwritten digit dataset using different algorithms.
+
+## Usage
+
+Run the main script:
+
+```
+python src/mnist_classifier.py
+```
+
+## How the Code Works
+
+1. The code defines an abstract base class `DigitClassificationInterface` that serves as an interface for all classifier models.
+
+2. Three classifier models are implemented, each inheriting from `DigitClassificationInterface`:
+
+   - `CNNModel`: A Convolutional Neural Network using TensorFlow/Keras
+   - `RandomForestModel`: A Random Forest classifier using scikit-learn
+   - `RandomModel`: A model that makes random predictions
+
+3. The `DigitClassifier` class acts as a facade, allowing the user to choose which algorithm to use by specifying 'cnn', 'rf', or 'rand'.
+
+4. The script loads and preprocesses the MNIST dataset, then trains and evaluates each classifier.
+
+## Results
+
+Here are the results from running the script:
+
+```
+CNN accuracy: 0.9891
+RF accuracy: 0.9689
+RAND accuracy: 0.0995
+```
+
+### Analysis
+
+- The CNN model achieves the highest accuracy at 98.91%.
+- The Random Forest model also performs well with 96.89% accuracy.
+- As expected, the Random model performs poorly with about 10% accuracy (close to random guessing for 10 classes).
+- Both CNN and RF correctly predict the first test image as 7.
+
+These results demonstrate the effectiveness of both the CNN and Random Forest approaches for the MNIST digit classification task, with the CNN slightly outperforming the Random Forest model.
